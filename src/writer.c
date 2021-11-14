@@ -20,18 +20,18 @@ void signal_handler(int signal)
 {
     if (SIGUSR1 == signal)
     {
-        write(fd_named_fifo, "SIGN:1\n", 8);
+        write(fd_named_fifo, "SIGN:1", 7);
     }
     else
     {
-        write(fd_named_fifo, "SIGN:2\n", 8);
+        write(fd_named_fifo, "SIGN:2", 7);
     }
 }
 
 int main(void)
 {
     pid_t pid = getpid();
-    printf("PID: %d\n\r", pid);
+    printf("WRITER PID: %d\n\r", pid);
 
     struct sigaction sa;
     sa.sa_handler = signal_handler;
