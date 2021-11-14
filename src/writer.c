@@ -35,7 +35,7 @@ int main(void)
 
     struct sigaction sa;
     sa.sa_handler = signal_handler;
-    sa.sa_flags = 0;
+    sa.sa_flags = SA_RESTART;
     //sigemptyset(&sa.sa_mask);
     sigaction(SIGUSR1, &sa, NULL);
     sigaction(SIGUSR2, &sa, NULL);
